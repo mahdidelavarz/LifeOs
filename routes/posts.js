@@ -4,7 +4,7 @@ import { isAdmin, isAuthWithCookie } from "../utils.js";
 import Post from "../models/Post.js";
 import slugify from "slugify";
 import shortId from "shortid";
-import PostCategory from "../models/PostCategory.js";
+import PostCategory from "../models/postCategory.js";
 import cookie from "cookie";
 import User from "../models/user.js";
 

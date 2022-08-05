@@ -1,7 +1,7 @@
 import express from "express";
 import asyncHandler from "express-async-handler";
 import { isAdmin, isAuthWithCookie } from "../utils.js";
-import PostCategory from "../models/PostCategory.js";
+import PostCategory from "../models/postCategory.js";
 
 const router = express.Router();
 

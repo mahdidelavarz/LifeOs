@@ -59,7 +59,7 @@ router.post(
         phoneNumber: savedUser.phoneNumber,
       });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       res.status(400).send(error);
     }
   })

@@ -169,7 +169,7 @@ router.get(
         return res.status(200).json({ data: response });
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         return res.status(400).json({ message: error });
       });
   })
@@ -240,14 +240,14 @@ router.get("/:slug", decideMiddleware, async (req, res) => {
     return res.status(200).json({ data: post });
     // const seo = await productMeta.findOne({ productId: product._id });
   } catch (error) {
-    console.log({ error });
+    // console.log({ error });
     return res.status(404).json({ error });
   }
 });
 
 // query for posts based on query parameters
 router.get("/", decideMiddleware, async (req, res) => {
-  console.log(req.user);
+  // console.log(req.user);
   const category = req.query.categoryId;
   const query = {};
 
@@ -302,7 +302,7 @@ router.get("/", decideMiddleware, async (req, res) => {
       return res.status(200).json({ data: response });
     })
     .catch((error) => {
-      console.log(error);
+      // console.log(error);
       return res.status(400).json({ message: error });
     });
 });

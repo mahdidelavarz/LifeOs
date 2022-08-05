@@ -23,7 +23,7 @@ router.get(
   // isAuth,
   // isAdmin,
   asyncHandler(async (req, res) => {
-    console.log(data.products);
+    // console.log(data.products);
     const createdProducts = await Products.insertMany(data.products);
     res.send({ createdProducts });
   })
@@ -39,4 +39,3 @@ router.get("/:id", async (req, res) => {
 });
 
 export default router;
-

@@ -41,7 +41,15 @@ mongoose.set("useCreateIndex", true);
 const origin =
   process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://fronthooks.ir";
 
-app.use(cors({ credentials: true, origin: "*" }));
+app.use(
+  cors({
+    credentials: true,
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+  })
+);
 
 app.use(cookieParser(process.env.COOKIE_PARSER_SECRET || "COOKIE PARSER SECRET"));
 

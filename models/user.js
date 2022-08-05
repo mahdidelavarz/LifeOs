@@ -6,7 +6,7 @@ const userSchema = mongoose.Schema(
     email: { type: String, required: true, unique: true },
     phoneNumber: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    isAdmin: { type: Boolean, default: false, required: true },
+    isAdmin: { type: Boolean, default: true, required: true },
     resetLink: { data: String, default: "" },
     biography: { type: String, default: "Web Developer" },
     bookmarkedPosts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],

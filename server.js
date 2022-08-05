@@ -19,10 +19,13 @@ app.use(express.urlencoded({ extended: true })); // parses application/x-www-for
 
 // Connect to DB
 mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://sahebm:KzQmsjBq3frmr6oU@cluster0.h9qo6wt.mongodb.net/nextjs?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => {
     console.log("MongoDB connected!!");
   })
@@ -38,7 +41,7 @@ mongoose.set("useCreateIndex", true);
 const origin =
   process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://fronthooks.ir";
 
-app.use(cors({ credentials: true, origin }));
+app.use(cors({ credentials: true, origin: "*" }));
 
 app.use(cookieParser(process.env.COOKIE_PARSER_SECRET || "COOKIE PARSER SECRET"));
 

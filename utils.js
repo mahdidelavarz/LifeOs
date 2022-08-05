@@ -68,7 +68,7 @@ export function setCookie(user, res) {
     sameSite: "Lax",
     secure: false,
     // secure: process.env.NODE_ENV === "development" ? false : true,
-    domain: process.env.NODE_ENV === "development" ? "localhost" : ".domain.ir",
+    // domain: process.env.NODE_ENV === "development" ? "localhost" : ".vervel.app",
   };
   // res.setHeader("Set-Cookie", cookie.serialize("userToken", generateToken(user), cookieOptions));
   res.cookie("userToken", generateToken(user), cookieOptions); //

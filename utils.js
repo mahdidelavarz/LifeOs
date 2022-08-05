@@ -66,7 +66,8 @@ export function setCookie(user, res) {
     httpOnly: true, // The cookie only accessible by the web server
     signed: true, // Indicates if the cookie should be signed
     sameSite: "Lax",
-    secure: process.env.NODE_ENV === "development" ? false : true,
+    secure: false,
+    // secure: process.env.NODE_ENV === "development" ? false : true,
     domain: process.env.NODE_ENV === "development" ? "localhost" : ".domain.ir",
   };
   // res.setHeader("Set-Cookie", cookie.serialize("userToken", generateToken(user), cookieOptions));

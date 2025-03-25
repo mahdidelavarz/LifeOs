@@ -1,69 +1,92 @@
 @import "tailwindcss";
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+@theme {
+  /* Base variables (default/light theme) */
+  --color-header-100: #6366f1;
+  --color-header-200: #8b5cf6;
+  --color-dark-bg-100: #6366f1;
+  --color-light-bg-100: #fdf4ff;
+  --color-dark-gradient-100: #4f46e5;
+  --color-light-gradient-100: #ec4899;
+  --color-dark-shadow-100: #4338ca;
+  --color-light-shadow-100: #6366f1;
+  --color-border-100: #f472b6;
+  --color-border-200: #6366f1;
+  --color-border-300: #3b82f6;
+  --color-text-100: #fdf4ff;
+  --color-text-200: #e879f9;
+  --color-dark-text-100: #312e81;
+  --color-icon-100: #0ea5e9;
+  --color-icon-200: #22d3ee;
+  --color-icon-300: #2dd4bf;
+  --color-accent-100: #f59e0b;
+  --color-accent-200: #fbbf24;
+  --color-border-accent-100: #f472b6;
+  --color-input-dark-100: #4338ca;
+  --color-table-hover-100: #e0e7ff;
+  --color-table-action-100: #0ea5e9;
+  --color-table-action-200: #22d3ee;
+  --color-hover-100: #3b82f6;
+  --color-hover-200: #fdf4ff;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+/* Rainbow theme */
+.rainbow {
+  --color-header-100: #18181b;
+  --color-header-200: #27272a;
+  --color-dark-bg-100: #18181b;
+  --color-light-bg-100: #27272a;
+  --color-dark-gradient-100: #09090b;
+  --color-light-gradient-100: #27272a;
+  --color-dark-shadow-100: #000000;
+  --color-light-shadow-100: #18181b;
+  --color-border-100: #3f3f46;
+  --color-border-200: #18181b;
+  --color-border-300: #27272a;
+  --color-text-100: #fafafa;
+  --color-text-200: #71717a;
+  --color-dark-text-100: #09090b;
+  --color-icon-100: #3f3f46;
+  --color-icon-200: #52525b;
+  --color-icon-300: #71717a;
+  --color-accent-100: #06b6d4;
+  --color-accent-200: #22d3ee;
+  --color-border-accent-100: #3f3f46;
+  --color-input-dark-100: #09090b;
+  --color-table-hover-100: #27272a;
+  --color-table-action-100: #27272a;
+  --color-table-action-200: #3f3f46;
+  --color-hover-100: #3f3f46;
+  --color-hover-200: #fafafa;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Obsidian theme */
+.obsidian {
+  --color-header-100: #18181b;
+  --color-header-200: #27272a;
+  --color-dark-bg-100: #18181b;
+  --color-light-bg-100: #27272a;
+  --color-dark-gradient-100: #09090b;
+  --color-light-gradient-100: #27272a;
+  --color-dark-shadow-100: #000000;
+  --color-light-shadow-100: #18181b;
+  --color-border-100: #3f3f46;
+  --color-border-200: #18181b;
+  --color-border-300: #27272a;
+  --color-text-100: #fafafa;
+  --color-text-200: #71717a;
+  --color-dark-text-100: #09090b;
+  --color-icon-100: #3f3f46;
+  --color-icon-200: #52525b;
+  --color-icon-300: #71717a;
+  --color-accent-100: #06b6d4;
+  --color-accent-200: #22d3ee;
+  --color-border-accent-100: #3f3f46;
+  --color-input-dark-100: #09090b;
+  --color-table-hover-100: #27272a;
+  --color-table-action-100: #27272a;
+  --color-table-action-200: #3f3f46;
+  --color-hover-100: #3f3f46;
+  --color-hover-200: #fafafa;
 }

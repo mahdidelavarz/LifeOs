@@ -8,7 +8,11 @@ interface ThemeState {
 
 const useThemeStore = create<ThemeState>((set) => ({
   theme: 'light',
-  setTheme: (theme) => set({ theme }),
+  setTheme: (theme) => {
+    document.documentElement.className = theme; // Apply theme class to <html>
+    set({ theme });
+  },
 }));
 
 export default useThemeStore;
+

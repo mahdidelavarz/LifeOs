@@ -27,7 +27,7 @@ function Login() {
           ورود و یا ثبت نام در لاولکد به منزله{" "}
           <b className="text-blue-600">پذیرش قوانین و مقررات</b> است.
         </span>
-        <button className="btn-full">ورود</button>
+        <button className="w-full rounded-xl p-2 text-slate-100 bg-blue-900 text-lg shadow-sm duration-300">ورود</button>
       </div>
     </AuthLayout>
   );

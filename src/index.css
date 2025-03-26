@@ -18,98 +18,64 @@ body {
 
 @theme {
   /* Base variables (default/light theme) */
-  --color-header-100: #6366f1;
-  --color-header-200: #8b5cf6;
-  --color-dark-bg-100: #6366f1;
-  --color-light-bg-100: #fdf4ff;
-  --color-dark-gradient-100: #4f46e5;
-  --color-light-gradient-100: #ec4899;
-  --color-dark-shadow-100: #4338ca;
-  --color-light-shadow-100: #6366f1;
-  --color-border-100: #f472b6;
-  --color-border-200: #6366f1;
-  --color-border-300: #3b82f6;
-  --color-text-100: #fdf4ff;
-  --color-text-200: #e879f9;
-  --color-dark-text-100: #312e81;
-  --color-icon-100: #0ea5e9;
-  --color-icon-200: #22d3ee;
-  --color-icon-300: #2dd4bf;
-  --color-accent-100: #f59e0b;
-  --color-accent-200: #fbbf24;
-  --color-border-accent-100: #f472b6;
-  --color-input-dark-100: #4338ca;
-  --color-table-hover-100: #e0e7ff;
-  --color-table-action-100: #0ea5e9;
-  --color-table-action-200: #22d3ee;
-  --color-hover-100: #3b82f6;
-  --color-hover-200: #fdf4ff;
+  --color-primary-100: #cffafe;
+  --color-primary-200: #a5f3fc;
+  --color-primary-300: #67e8f9;
+  --color-primary-400: #22d3ee;
+  --color-primary-500: #06b6d4;
+  --color-primary-600: #0891b2;
+  --color-primary-700: #0e7490;
+  --color-primary-800: #155e75;
+  --color-primary-900: #155e75;
+  --color-primary-950: #164e63;
+  --color-text-black: #0f172a; /* slate 900 */
+  --color-text-gray: #475569; /* slate 600 */
+  --color-text-lightGray: #94a3b8; /* slate 400 */
+  --color-text-white: #f1f5f9; /* slate 100 */
+  --color-white: #ffffff; /* slate 100 */
+  --color-background: #f3f4f6; /* slate 100 */
 }
 
 /* Rainbow theme */
 .rainbow {
-  --color-header-100: #18181b;
-  --color-header-200: #27272a;
-  --color-dark-bg-100: #18181b;
-  --color-light-bg-100: #27272a;
-  --color-dark-gradient-100: #09090b;
-  --color-light-gradient-100: #27272a;
-  --color-dark-shadow-100: #000000;
-  --color-light-shadow-100: #18181b;
-  --color-border-100: #3f3f46;
-  --color-border-200: #18181b;
-  --color-border-300: #27272a;
-  --color-text-100: #fafafa;
-  --color-text-200: #71717a;
-  --color-dark-text-100: #09090b;
-  --color-icon-100: #3f3f46;
-  --color-icon-200: #52525b;
-  --color-icon-300: #71717a;
-  --color-accent-100: #06b6d4;
-  --color-accent-200: #22d3ee;
-  --color-border-accent-100: #3f3f46;
-  --color-input-dark-100: #09090b;
-  --color-table-hover-100: #27272a;
-  --color-table-action-100: #27272a;
-  --color-table-action-200: #3f3f46;
-  --color-hover-100: #3f3f46;
-  --color-hover-200: #fafafa;
+  --color-primary-100: #cffafe;
+  --color-primary-200: #a5f3fc;
+  --color-primary-300: #67e8f9;
+  --color-primary-400: #22d3ee;
+  --color-primary-500: #06b6d4;
+  --color-primary-600: #0891b2;
+  --color-primary-700: #0e7490;
+  --color-primary-800: #155e75;
+  --color-primary-900: #155e75;
+  --color-primary-950: #164e63;
+  --color-text-black: #0f172a; /* slate 900 */
+  --color-text-gray: #475569; /* slate 600 */
+  --color-text-lightGray: #94a3b8; /* slate 400 */
+  --color-text-white: #f1f5f9; /* slate 100 */
 }
 
 /* Obsidian theme */
 .obsidian {
-  --color-header-100: #18181b;
-  --color-header-200: #27272a;
-  --color-dark-bg-100: #18181b;
-  --color-light-bg-100: #27272a;
-  --color-dark-gradient-100: #09090b;
-  --color-light-gradient-100: #27272a;
-  --color-dark-shadow-100: #000000;
-  --color-light-shadow-100: #18181b;
-  --color-border-100: #3f3f46;
-  --color-border-200: #18181b;
-  --color-border-300: #27272a;
-  --color-text-100: #fafafa;
-  --color-text-200: #71717a;
-  --color-dark-text-100: #09090b;
-  --color-icon-100: #3f3f46;
-  --color-icon-200: #52525b;
-  --color-icon-300: #71717a;
-  --color-accent-100: #06b6d4;
-  --color-accent-200: #22d3ee;
-  --color-border-accent-100: #3f3f46;
-  --color-input-dark-100: #09090b;
-  --color-table-hover-100: #27272a;
-  --color-table-action-100: #27272a;
-  --color-table-action-200: #3f3f46;
-  --color-hover-100: #3f3f46;
-  --color-hover-200: #fafafa;
+  --color-primary-100: #cffafe;
+  --color-primary-200: #a5f3fc;
+  --color-primary-300: #67e8f9;
+  --color-primary-400: #22d3ee;
+  --color-primary-500: #06b6d4;
+  --color-primary-600: #0891b2;
+  --color-primary-700: #0e7490;
+  --color-primary-800: #155e75;
+  --color-primary-900: #155e75;
+  --color-primary-950: #164e63;
+  --color-text-black: #0f172a; /* slate 900 */
+  --color-text-gray: #475569; /* slate 600 */
+  --color-text-lightGray: #94a3b8; /* slate 400 */
+  --color-text-white: #f1f5f9; /* slate 100 */
 }
 @layer components {
-  /* .btn-full {
-    @apply  ;
+  .btn-full {
+    @apply w-full rounded-xl py-4 text-slate-100 bg-primary-900 shadow-sm duration-300 text-sm;
   }
-  .btn__secondary {
+  /*.btn__secondary {
     @apply bg-secondary-600 text-secondary-100;
   }
   .btn__danger {
@@ -125,7 +91,7 @@ body {
     @apply w-5 h-5;
   } */
   .input {
-    @apply px-3 py-2 outline-none  rounded-lg bg-white shadow-sm focus:shadow-inner focus:shadow-slate-300 shadow-slate-300 text-blue-900;
+    @apply px-3 py-2 outline-none  rounded-lg bg-white shadow-sm focus:shadow-inner focus:shadow-slate-300 shadow-slate-300 text-primary-900;
   }
   /* .header {
     @apply w-full h-16 shadow-sm shadow-slate-900 flex justify-between items-center px-4 text-secondary-200 gap-4 fixed top-0;

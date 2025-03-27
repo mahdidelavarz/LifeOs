@@ -1,15 +1,21 @@
-import { create } from "zustand";
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
-// Define the state type
 interface ProgressState {
-  step: number;
-  nextStep: () => void;
-  resetSteps: () => void;
+  step: number; // 1 to 4
+  setStep: (step: number) => void;
 }
 
-// Create the Zustand store
-export const useProgressStore = create<ProgressState>((set) => ({
-  step: 1, // Initial state
-  nextStep: () => set((state) => ({ step: Math.min(state.step + 1, 4) })), // Max step = 4
-  resetSteps: () => set({ step: 1 }), // Reset to step 1
-}));
+const useProgressStore = create<ProgressState>()(
+  persist(
+    (set) => ({
+      step: 1, // Start at step 1
+      setStep: (step) => set({ step }),
+    }),
+    {
+      name: 'progress-storage', // Key for localStorage
+    }
+  )
+);
+
+export default useProgressStore;

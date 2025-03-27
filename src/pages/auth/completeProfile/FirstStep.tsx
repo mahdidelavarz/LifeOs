@@ -1,8 +1,18 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import AuthLayout from "../../../components/layout/AuthLayout";
 import CircleProgress from "../../../components/ui/CircleProgress";
+import { useNavigate } from "react-router-dom";
+import useProgressStore from "../../../store/ProfileProgressStore";
+import { useEffect } from "react";
 
 function FirstStep() {
+  const navigate = useNavigate();
+  const { step, setStep } = useProgressStore();
+
+  useEffect(() => {
+    setStep(1);
+  }, []);
+
   return (
     <AuthLayout isBack={false}>
       <div className="w-full flex flex-col justify-center items-center mt-14">
@@ -18,8 +28,13 @@ function FirstStep() {
           placeholder="نام و نام خانوادگی"
         />
         <div className="w-full flex items-center gap-2 mt-32">
-          <CircleProgress />
-          <button className="btn-full w-60 ">ثبت و مرحله بعد</button>
+          <CircleProgress step={step} />
+          <button
+            className="btn-full"
+            onClick={() => navigate("/completeProfile/secondStep")}
+          >
+            ثبت و مرحله بعد
+          </button>
         </div>
       </div>
     </AuthLayout>

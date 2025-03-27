@@ -1,47 +1,45 @@
-import React from "react";
-import { useProgressStore } from "../../store/ProfileProgressStore";
+interface CircleProgressBarProps {
+  step: number; // Current step (1-4)
+}
 
-const CircleProgress: React.FC = () => {
-  const step = useProgressStore((state) => state.step);
-
-  // Define quarter-circle paths
-  const arcs: string[] = [
-    "M 50,10 A 40,40 0 0,1 90,50", // Top-right
-    "M 90,50 A 40,40 0 0,1 50,90", // Bottom-right
-    "M 50,90 A 40,40 0 0,1 10,50", // Bottom-left
-    "M 10,50 A 40,40 0 0,1 50,10", // Top-left
-  ];
+function CircleProgress({ step }: CircleProgressBarProps) {
+  const radius = 40;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDasharray = circumference;
+  const strokeDashoffset = circumference - (step / 4) * circumference;
 
   return (
-    <div className="text-center relative">
+    <div className="relative flex items-center justify-center">
       <svg width="50" height="50" viewBox="0 0 100 100">
-        {/* Background Circle (light gray) */}
+        {/* Background circle (gray) */}
         <circle
           cx="50"
           cy="50"
-          r="40"
+          r={radius}
           fill="none"
-          stroke="lightgray"
+          stroke="#e5e7eb" // Tailwind gray-200
           strokeWidth="6"
         />
-
-        {/* Blue arcs with rounded ends */}
-        {arcs.map((d, index) => (
-          <path
-            key={index}
-            d={d}
-            stroke={index < step ? "#155e75" : "transparent"} // Blue color only for active steps
-            strokeWidth="8"
-            fill="none"
-            strokeLinecap="round" // Rounded ends for blue arcs only
-          />
-        ))}
+        {/* Progress circle (blue) */}
+        <circle
+          cx="50"
+          cy="50"
+          r={radius}
+          fill="none"
+          stroke="#3b82f6" // Tailwind blue-500 from hover-100
+          strokeWidth="6"
+          strokeDasharray={strokeDasharray}
+          strokeDashoffset={strokeDashoffset}
+          transform="rotate(-90 50 50)" // Start from top
+          strokeLinecap="round"
+        />
       </svg>
+      {/* Step number */}
       <span className="text-text-gray text-xs absolute top-3.5 right-4">
-        <b className="text-black text-base">1</b>/4
+        <b className="text-black text-base">{step}</b>/4
       </span>
     </div>
   );
-};
+}
 
 export default CircleProgress;

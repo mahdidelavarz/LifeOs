@@ -7,7 +7,6 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import Picker from "react-mobile-picker";
 
 // Persian numerals conversion
-// Persian numerals conversion
 const toPersianNumeral = (num: number | string): string => {
   const persianDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
   // Ensure num is a string before using replace
@@ -20,9 +19,21 @@ const years = Array.from(
   { length: currentYear - 1900 + 1 },
   (_, i) => currentYear - i
 ).map((year) => toPersianNumeral(year));
-const months = Array.from({ length: 12 }, (_, i) => i + 1).map((month) =>
-  toPersianNumeral(month)
-);
+const PersianMonths = [
+  "فروردین",
+  "اردیبهشت",
+  "خرداد",
+  "تیر",
+  "مرداد",
+  "شهریور",
+  "مهر",
+  "آبان",
+  "آذر",
+  "دی",
+  "بهمن",
+  "اسفند",
+];
+
 const days = Array.from({ length: 31 }, (_, i) => i + 1).map((day) =>
   toPersianNumeral(day)
 );
@@ -76,124 +87,108 @@ function SecondStep() {
   };
   return (
     <AuthLayout isBack={true}>
-      <div className="w-full flex items-center gap-2 mt-32">
-        <CircleProgress step={step} />
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          <div className="relative">
-            {/* Labels */}
-            <div className="flex justify-between mb-2">
-              <span className="text-text-200">سال</span>
-              <span className="text-text-200">ماه</span>
-              <span className="text-text-200">روز</span>
-            </div>
-            {/* Picker */}
-            <div className="relative">
-              {/* Gradient overlays for fade effect */}
-              <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-white to-transparent z-10" />
-              <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent z-10" />
-              {/* Selection highlight */}
-              <div className="absolute top-1/2 left-0 right-0 h-8 -mt-4 border-t border-b border-border-100 z-10" />
-              <Picker
-                value={pickerValue}
-                onChange={handlePickerChange}
-                wheelMode="natural"
-              >
-                <Picker.Column name="year">
-                  {years.map((option) => (
-                    <Picker.Item key={option} value={option}>
-                      {({ selected }) => (
-                        <div
-                          className={`text-lg ${
-                            selected
-                              ? "font-bold text-accent-100"
-                              : "text-dark-text-100"
-                          }`}
-                        >
-                          {option}
-                        </div>
-                      )}
-                    </Picker.Item>
-                  ))}
-                </Picker.Column>
-                <Picker.Column name="month">
-                  {months.map((option) => (
-                    <Picker.Item key={option} value={option}>
-                      {({ selected }) => (
-                        <div
-                          className={`text-lg ${
-                            selected
-                              ? "font-bold text-accent-100"
-                              : "text-dark-text-100"
-                          }`}
-                        >
-                          {option}
-                        </div>
-                      )}
-                    </Picker.Item>
-                  ))}
-                </Picker.Column>
-                <Picker.Column name="day">
-                  {days.map((option) => (
-                    <Picker.Item key={option} value={option}>
-                      {({ selected }) => (
-                        <div
-                          className={`text-lg ${
-                            selected
-                              ? "font-bold text-accent-100"
-                              : "text-dark-text-100"
-                          }`}
-                        >
-                          {option}
-                        </div>
-                      )}
-                    </Picker.Item>
-                  ))}
-                </Picker.Column>
-              </Picker>
-            </div>
-          </div>
-          {/* Hidden inputs for validation */}
-          <input
-            type="hidden"
-            {...register("year", { required: "Year is required" })}
-          />
-          <input
-            type="hidden"
-            {...register("month", { required: "Month is required" })}
-          />
-          <input
-            type="hidden"
-            {...register("day", { required: "Day is required" })}
-          />
-          {errors.year && (
-            <p className="text-red-500 text-sm">{errors.year.message}</p>
-          )}
-          {errors.month && (
-            <p className="text-red-500 text-sm">{errors.month.message}</p>
-          )}
-          {errors.day && (
-            <p className="text-red-500 text-sm">{errors.day.message}</p>
-          )}
-          <div className="flex gap-4">
-            <button
-              type="button"
-              onClick={() => {
-                setStep(1);
-                Navigate("/profile/name-photo");
-              }}
-              className="w-full px-4 py-2 rounded bg-gray-300 text-dark-text-100 hover:bg-gray-400"
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full mt-10 ">
+        <div className="relative">
+          {/* Picker */}
+          <div className="relative w-full">
+            {/* Gradient overlays for fade effect */}
+            <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-background to-transparent z-10" />
+            <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-background to-transparent z-10" />
+            {/* Selection highlight */}
+            <div className="absolute top-1/2 left-0 right-0 h-8 -mt-4 z-10" />
+            <Picker
+              value={pickerValue}
+              onChange={handlePickerChange}
+              wheelMode="natural"
+              height={405}
+              itemHeight={50}
             >
-              Back
-            </button>
-            <button
-              type="submit"
-              className="w-full px-4 py-2 rounded bg-accent-100 text-white hover:bg-accent-200"
-            >
-              Next
-            </button>
+              <Picker.Column name="year">
+                {years.map((option) => (
+                  <Picker.Item key={option} value={option}>
+                    {({ selected }) => (
+                      <div
+                        className={`z-50 ${
+                          selected
+                            ? "font-bold text-text-black"
+                            : "text-text-lightGray"
+                        }`}
+                      >
+                        {option}
+                      </div>
+                    )}
+                  </Picker.Item>
+                ))}
+              </Picker.Column>
+              <Picker.Column name="month">
+                {PersianMonths.map((option) => (
+                  <Picker.Item key={option} value={option}>
+                    {({ selected }) => (
+                      <div
+                        className={`sssssssss ${
+                          selected
+                            ? "font-bold text-text-black"
+                            : "text-text-lightGray"
+                        }`}
+                      >
+                        {option}
+                      </div>
+                    )}
+                  </Picker.Item>
+                ))}
+              </Picker.Column>
+              <Picker.Column name="day">
+                {days.map((option) => (
+                  <Picker.Item key={option} value={option}>
+                    {({ selected }) => (
+                      <div
+                        className={` ${
+                          selected
+                            ? "font-bold text-text-black"
+                            : "text-text-lightGray"
+                        }`}
+                      >
+                        {option}
+                      </div>
+                    )}
+                  </Picker.Item>
+                ))}
+              </Picker.Column>
+            </Picker>
           </div>
-        </form>
-      </div>
+        </div>
+        {/* Hidden inputs for validation */}
+        <input
+          type="hidden"
+          {...register("year", { required: "Year is required" })}
+        />
+        <input
+          type="hidden"
+          {...register("month", { required: "Month is required" })}
+        />
+        <input
+          type="hidden"
+          {...register("day", { required: "Day is required" })}
+        />
+        {errors.year && (
+          <p className="text-red-500 text-sm">{errors.year.message}</p>
+        )}
+        {errors.month && (
+          <p className="text-red-500 text-sm">{errors.month.message}</p>
+        )}
+        {errors.day && (
+          <p className="text-red-500 text-sm">{errors.day.message}</p>
+        )}
+        <div className="w-full flex items-center gap-2 mt-6">
+          <CircleProgress step={step} />
+          <button
+            className="btn-full"
+            onClick={() => Navigate("/completeProfile/secondStep")}
+          >
+            ثبت و مرحله بعد
+          </button>
+        </div>
+      </form>
     </AuthLayout>
   );
 }

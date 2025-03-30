@@ -6,6 +6,8 @@ declare module "react-mobile-picker" {
     onChange: (value: { [key: string]: string }) => void;
     wheelMode?: "natural" | "normal";
     children: ReactNode;
+    height: number;
+    itemHeight: number;
   }
 
   interface ColumnProps {

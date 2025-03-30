@@ -2,7 +2,7 @@ import AuthLayout from "../../components/layout/AuthLayout";
 
 function SignUp() {
   return (
-    <AuthLayout>
+    <AuthLayout isBack={false}>
       <div></div>
     </AuthLayout>
   );

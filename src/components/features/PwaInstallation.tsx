@@ -3,7 +3,7 @@ import BeforeInstallPromptEvent from "../../types/pwaInstallation";
 import useThemeStore from "../../store/themeStore";
 
 function PwaInstallation() {
-  const { theme, setTheme } = useThemeStore(); // Zustand hook
+  const { theme } = useThemeStore(); // Zustand hook
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
 

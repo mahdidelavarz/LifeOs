@@ -1,40 +1,35 @@
-import PwaInstallation from "./components/features/PwaInstallation";
-import RoutineHabits from "./pages/RoutineHabits";
-import { Routes, Route, Navigate } from "react-router-dom";
-import "./index.css";
-import Login from "./pages/auth/Login";
-import SignUp from "./pages/auth/Signup";
-import NotFound from "./pages/NotFound";
-import ConfirmOtpForm from "./pages/auth/ConfirmOtpForm";
-import FirstStep from "./pages/auth/completeProfile/FirstStep";
-import SecondStep from "./pages/auth/completeProfile/SecondStep";
-import ThirdStep from "./pages/auth/completeProfile/ThirdStep";
-import FourthStep from "./pages/auth/completeProfile/FourthStep";
-import CompleteProfileLayout from "./components/layout/CompleteProfileLayout";
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <div className="min-h-screen">
-      <PwaInstallation />
-      <Routes>
-        <Route path="/" element={<RoutineHabits />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/confirmOtp" element={<ConfirmOtpForm />} />
-        <Route
-          path="/completeProfile"
-          element={<Navigate to="/completeProfile/firstStep" replace />}
-        />
-        <Route path="/completeProfile" element={<CompleteProfileLayout />}>
-          <Route path="firstStep" element={<FirstStep />} />
-          <Route path="secondStep" element={<SecondStep />} />
-          <Route path="thirdStep" element={<ThirdStep />} />
-          <Route path="fourthStep" element={<FourthStep />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </div>
-  );
+    <>
+      <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1 className='bg-red-500'>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
 }
 
-export default App;
+export default App

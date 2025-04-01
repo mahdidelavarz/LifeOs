@@ -1,0 +1,22 @@
+:root {
+    --bg-primary: #f3f4f6;
+    --text-primary: #111827;
+    --accent: #3b82f6;
+  }
+  
+  [data-theme='dark'] {
+    --bg-primary: #1f2937;
+    --text-primary: #f9fafb;
+    --accent: #60a5fa;
+  }
+  
+  [data-theme='forest'] {
+    --bg-primary: #f0fdf4;
+    --text-primary: #14532d;
+    --accent: #16a34a;
+  }
+  
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
